@@ -3,7 +3,7 @@ import Mine from '../views/Mine.vue'
 import Topic from '../views/Topic.vue'
 import Search from '../views/Search.vue'
 import Layout from '../views/Layout.vue'
-import Home from '../views/Home.vue'
+import Home from '../views/Home/Index.vue'
 
 const routerHistory = createWebHistory()
 

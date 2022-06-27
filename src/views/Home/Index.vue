@@ -1,7 +1,12 @@
 <template>
-  
+  <div class="home">
+    <MusicList/>
+  </div>
 </template>
 <script>
+
+import MusicList from './MusicListView.vue'
+
 export default {
     data() {
         return {
@@ -16,7 +21,7 @@ export default {
     },
     name: 'Home',
     components: {
-
+        MusicList
     }
 }
 </script>
