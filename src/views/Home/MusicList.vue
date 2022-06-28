@@ -2,39 +2,42 @@
 <template>
     <div>
         <div>
-            <MusicListView :musiclist="newMusic"></MusicListView>
+            <MusicListView :recommend='recommend'/>
+            <MusicRecommend :recommend='musiclist'/>
         </div>
         
     </div>
 </template>
 <script>
 import MusicListView from './MusicListView.vue'
+import MusicRecommend from './MusicRecommend.vue'
 
 export default {
     name:'MusicList',
     data() {
         return {
-            newMusic: []
+            recommend: [],
+            musiclist: [],
         }
     },
     methods:{
         
     },
-    created(){
-        console.log('123456');
+    mounted(){
         
-        this.$api.getMusicList({
-            methods: 'baidu.ting.billboard.billList',
-            type: 1,
-            size: 6,
-            offset: 0
-        }).then(res => {
-            // console.log(res);
-            this.newMusic = res.song_list
+        this.$api.getRecommend().then(res => {
+            this.recommend = res.recommend
         })
+        this.$api.getMusic().then(res => {
+            this.musiclist = res.musiclist
+        })
+
+ 
+          
     },
     components: {
-        MusicListView
+        MusicListView,
+        MusicRecommend
     }
 }
 </script>

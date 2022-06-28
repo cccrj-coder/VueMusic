@@ -3,7 +3,7 @@ module.exports = defineConfig({
   devServer: {
     proxy: {
         '/api': {
-            target: 'http://tingapi.ting.baidu.com',
+            target: 'http://iwenwiki.com:3000/',
             changeOrigin: true,
             pathRewrite: {
                 "^/api": ""

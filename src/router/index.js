@@ -1,7 +1,4 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Mine from '../views/Mine.vue' 
-import Topic from '../views/Topic.vue'
-import Search from '../views/Search.vue'
 import Layout from '../views/Layout.vue'
 import Home from '../views/Home/Index.vue'
 
@@ -41,7 +38,17 @@ const routerHistory = createWebHistory()
           name: 'Search',
           component: () => import('../views/Search.vue')
         },
-      ]
+      ],
+    },
+    {
+      path: '/more/:type',
+      name: 'More',
+      component: () => import('../views/Home/MusicMore.vue')
+    },
+    {
+      path: 'details/:id',
+      name: 'Details',
+      component: () => import('../views/Home/MusicDetails.vue') 
     }
     
 ] 

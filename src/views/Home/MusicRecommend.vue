@@ -7,9 +7,7 @@
                 <!-- <router-link :to="`/more/`">更多</router-link> -->
             </div>
             <div class="list clearfix">
-                <router-link 
-                tag="div"
-                :to="`/details/${item.id}`"
+                <div 
                 class="item"
                 v-for='(item,index) in recommend'
                     :key="index"
@@ -20,7 +18,7 @@
                     </div>
                     <div class="main">{{ cutString(item.name) }}</div>
                     <div class="gray">{{ cutString(item.copywriter) }}</div>
-                </router-link>
+                </div>
             </div>
         </div>
     </div>
@@ -48,10 +46,13 @@ export default {
     },
     methods:{
         cutString(str){
-            if(str.length > 8){
+            if(str&&str.length > 8){
                 return str.substring(0,8) + '...'
             }
+            else if(str&&str.length <8)
             return str
+            else
+            return ''
         }
     },
     created(){
