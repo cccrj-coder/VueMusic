@@ -46,9 +46,14 @@ const routerHistory = createWebHistory()
       component: () => import('../views/Home/MusicMore.vue')
     },
     {
-      path: 'details/:id',
+      path: '/details/:id',
       name: 'Details',
       component: () => import('../views/Home/MusicDetails.vue') 
+    },
+    {
+      path: '/player/:id/:name/:image',
+      name: 'Player',
+      component: () => import('../views/Player.vue') 
     }
     
 ] 

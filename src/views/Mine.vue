@@ -18,9 +18,12 @@ export default {
     methods:{
         loginHandle(){
             this.$api.login({
-                phone: this.username,
+                // phone: this.username,
+                email: this.username,
                 password: this.password
             })
+
+
         }
     },
     created(){

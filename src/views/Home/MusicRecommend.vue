@@ -7,18 +7,20 @@
                 <!-- <router-link :to="`/more/`">更多</router-link> -->
             </div>
             <div class="list clearfix">
-                <div 
-                class="item"
-                v-for='(item,index) in recommend'
-                    :key="index"
-                    :class="{ 'clear-padding': index%3 !== 1}"
-                >
-                    <div class="img-warpper" >
-                        <img :src="item.picUrl" alt=''/>
-                    </div>
-                    <div class="main">{{ cutString(item.name) }}</div>
-                    <div class="gray">{{ cutString(item.copywriter) }}</div>
-                </div>
+                <router-link 
+                    tag="div"
+                    :to="`/player/${item.id}/${item.name}/${setUrl(item.picUrl)}`"
+                    class="item"
+                    v-for='(item,index) in recommend'
+                        :key="index"
+                        :class="{ 'clear-padding': index%3 !== 1}"
+                    >
+                        <div class="img-warpper" >
+                            <img :src="item.picUrl" alt=''/>
+                        </div>
+                        <div class="main">{{ cutString(item.name) }}</div>
+                        <div class="gray">{{ cutString(item.copywriter) }}</div>
+                </router-link>
             </div>
         </div>
     </div>
@@ -53,6 +55,11 @@ export default {
             return str
             else
             return ''
+        },
+        setUrl(url){
+            if(url){
+                return encodeURIComponent(url)
+            }
         }
     },
     created(){
