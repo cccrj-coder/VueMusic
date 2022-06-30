@@ -22,11 +22,15 @@
             </div>
         </div>
         <div class="song"> 
+            <LRC :id='$route.params.id' />
             <audio controls :src="playerData.url"></audio>
         </div>
     </div>
 </template>
 <script>
+
+import LRC from './LRC'
+
 export default {
     data() {
         return {
@@ -51,6 +55,10 @@ export default {
     created(){
         
     },
+    components:{
+        LRC
+    }
+
 }
 </script>
 <style scoped>

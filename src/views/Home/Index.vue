@@ -1,11 +1,13 @@
 <template>
   <div class="home">
     <MusicList/>
+    <MusicTabs/>    
   </div>
 </template>
 <script>
 
 import MusicList from './MusicListView.vue'
+import MusicTabs from './MusicTabs.vue'
 
 export default {
     data() {
@@ -21,7 +23,8 @@ export default {
     },
     name: 'Home',
     components: {
-        MusicList
+        MusicList,
+        MusicTabs
     }
 }
 </script>

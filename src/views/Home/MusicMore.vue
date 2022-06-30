@@ -19,7 +19,7 @@
                     <div class="main">{{ cutString(item.title) }}</div>
                     <div class="gray">{{ cutString(item.author) }}</div>
                 </div>
-         </div>
+         </div>   
          
          <div ref="loadmore">加载更多 </div>
     </div>

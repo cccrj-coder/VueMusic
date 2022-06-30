@@ -31,7 +31,15 @@ const api = {
     //播放接口
     getPlayer(params){
         return get('/api/song/url', params)
-    }
-}
+    },
+    //电台分类
+    getDjCategory(params){
+        return get('/api/dj/recommend/type', params) 
+    },
+    //获取歌词
+    getLRC(params){
+        return get('/api/lyric', params)
+    },
+}   
 
 export default api

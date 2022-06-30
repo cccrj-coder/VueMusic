@@ -22,12 +22,16 @@ export default {
       }   
     },
     render(){
+        const classStyle = {
+            tab: true,
+            active: this.isActive
+        }
         return(
-            <li class='tab active'>this.label</li>
+            <li onClick={ this.clickHandle } class={ classStyle }>this.label</li>
         )
     },
     methods:{
-        clickTTabHandle(){
+        clickTabHandle(){
             //获取到父级的defaultActiveKey的变化
             this.$parent.updateDefaultKey(this.key)
         }

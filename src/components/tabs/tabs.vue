@@ -28,7 +28,7 @@ export default {
                 <Content showContent={this.showContent}></Content>
             </div>
         )
-    },
+    },  
     components:{
         Content
     },
