@@ -37,6 +37,7 @@ export default {
         }
     },
     mounted(){
+        //似乎有点问题？
         this.$parent.showContent.push(this.$slot.default)
     },
     created(){

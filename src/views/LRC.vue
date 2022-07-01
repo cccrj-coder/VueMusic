@@ -1,17 +1,22 @@
 <template>
     <div class="lrcContainer" >
         <div class="lrc" ref="lrc">
-                <p v-for="(item,  index) in lrcData" :key="index">{{item}}</p>
+                <p class="lrc-p" :class=" {'active': currentTime > allKeys[index]&&currentTime < allKeys[inex+1]} " v-for="(item,  index) in lrcData" :key="index">{{item}}
+                    <span v-if="currentTime > allKeys[index] && currentTime < allKeys[index + 1]"> {{ item }}{{ scrollLRC(index) }} </span>
+                </p>
         </div>
 
     </div>
 </template>
 <script>
+import { throwStatement } from '@babel/types'
+
 export default {
     name: 'LRC',
     data() {
         return {
-            lrcData:''
+            lrcData:'',
+            allKeys: []
         }
     },
     methods:{
@@ -37,6 +42,16 @@ export default {
                 lrc[time] = content 
             }
             this.lrcData = lrc 
+        },
+        getAllKeys(lrcArr){
+            for(var key in lrcArr){
+                this.allKeys.push(key)
+            }
+        },
+        scrollLRC(){
+            if(this.currentTime > this.allKeys[index] && this.currentTime < this.allKeys[index + 1]){
+                this.$refs.lrc.style.top = -(30 * (index-2)) + 'px'
+            }
         }
     },
     created(){
@@ -46,6 +61,10 @@ export default {
         id:{
             type: [String, Number],
             required: true
+        },
+        currentTime: {
+            type: Number,
+            default: 0
         }
     },
     mounted(){

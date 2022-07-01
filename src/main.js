@@ -7,7 +7,7 @@ import './assets/font/iconfont.css'
 import MyComponent from './components/common/MyComponent'
 import Tabs from './components/tabs/tabs'
 import Tab from './components/tabs/tab'
-
+import BackTop from './components/backtop/BackTop.vue'
 
 
 // Vue.prototype.$api = api
@@ -19,6 +19,7 @@ const app = createApp(App)
 
 //注册全局组件
 app.component("MyComponent", MyComponent)
+app.component('BackTop', BackTop)
 app.component('Tabs', Tabs)
 app.component('Tab', Tab)
 

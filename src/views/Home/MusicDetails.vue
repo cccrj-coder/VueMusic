@@ -1,9 +1,11 @@
 <template>
     <div>
        <div class="list clearfix">
-                <div 
-                class="item"
-                v-for='(item,index) in recommend'
+                <router-link 
+                    tag="div"
+                    :to="{name:'Player',params:{id:item.id,name:item.name,image:encodeURIComponent(item.al.picUrl)}}"
+                    class="item"
+                    v-for='(item,index) in recommend'
                     :key="index"
                     :class="{ 'clear-padding': index%3 !== 1}"
                 >
@@ -12,7 +14,7 @@
                     </div>
                     <div class="main">{{ item.name }}</div>
                     <!-- <div class="gray">{{ cutString(item.copywriter) }}</div> -->
-                </div>
+                </router-link>
             </div>
     </div>
 </template>

@@ -40,6 +40,10 @@ const api = {
     getLRC(params){
         return get('/api/lyric', params)
     },
+    //搜索接口
+    getSearch(params){
+        return get('/api/search', params)
+    }
 }   
 
 export default api
